@@ -12,10 +12,10 @@
    "license":"MIT",
    "require":{  
       "php":">= 5.6.4",
-      "illuminate/database":"v5.4.36",
-      "illuminate/http":"v5.4.36",
-      "illuminate/routing":"v5.4.36",
-      "illuminate/support":"v5.4.36",
+      "illuminate/database":"v5.3.*",
+      "illuminate/http":"v5.3.*",
+      "illuminate/routing":"v5.3.*",
+      "illuminate/support":"v5.3.*",
       "zuams/elastic-apm-php-agent":"v1.0.0",
       "ramsey/uuid":"^3.0"
    },
