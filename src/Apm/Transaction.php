@@ -22,7 +22,7 @@ class Transaction
         $this->timer = $timer;
     }
 
-    public function startNewSpan(string $name = null, string $type = null): Span
+    public function startNewSpan(string $name = null, string $type = null)
     {
         $span = new Span($this->timer, $this->collection);
 

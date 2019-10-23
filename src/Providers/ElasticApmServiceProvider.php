@@ -67,7 +67,10 @@ class ElasticApmServiceProvider extends ServiceProvider
             );
         });
 
-        $this->startTime = $this->app['request']->server('REQUEST_TIME_FLOAT') ?? microtime(true);
+        $this->startTime = $this->app['request']->server('REQUEST_TIME_FLOAT') !== null ? 
+            $this->app['request']->server('REQUEST_TIME_FLOAT') : 
+            microtime(true);
+        
         $timer = new Timer($this->startTime);
 
         $collection = new SpanCollection();
@@ -84,7 +87,7 @@ class ElasticApmServiceProvider extends ServiceProvider
     /**
      * @return array
      */
-    protected function getAppConfig(): array
+    protected function getAppConfig()
     {
         $config = config('elastic-apm.app');
 
@@ -99,7 +102,7 @@ class ElasticApmServiceProvider extends ServiceProvider
      * @param Collection $stackTrace
      * @return Collection
      */
-    protected function stripVendorTraces(Collection $stackTrace): Collection
+    protected function stripVendorTraces(Collection $stackTrace)
     {
         return collect($stackTrace)->filter(function ($trace) {
             return !starts_with(array_get($trace, 'file'), [
@@ -112,7 +115,7 @@ class ElasticApmServiceProvider extends ServiceProvider
      * @param array $stackTrace
      * @return Collection
      */
-    protected function getSourceCode(array $stackTrace): Collection
+    protected function getSourceCode(array $stackTrace)
     {
         if (config('elastic-apm.spans.renderSource', false) === false) {
             return collect([]);
@@ -173,7 +176,7 @@ class ElasticApmServiceProvider extends ServiceProvider
                     'filename' => basename(array_get($trace, 'file')),
                     'lineno' => array_get($trace, 'line', 0),
                     'library_frame' => false,
-                    'vars' => $vars ?? null,
+                    'vars' => $vars ? $vars : null,
                     'pre_context' => optional($sourceCode->get('pre_context'))->toArray(),
                     'context_line' => optional($sourceCode->get('context_line'))->first(),
                     'post_context' => optional($sourceCode->get('post_context'))->toArray(),

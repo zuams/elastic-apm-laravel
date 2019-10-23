@@ -98,7 +98,7 @@ class RecordTransaction
      *
      * @return string
      */
-    protected function getTransactionName(\Illuminate\Http\Request $request): string
+    protected function getTransactionName(\Illuminate\Http\Request $request)
     {
         // fix leading /
         $path = ($request->server->get('REQUEST_URI') == '') ? '/' : $request->server->get('REQUEST_URI');
@@ -115,7 +115,7 @@ class RecordTransaction
      *
      * @return string
      */
-    protected function getRouteUriTransactionName(\Illuminate\Http\Request $request): string
+    protected function getRouteUriTransactionName(\Illuminate\Http\Request $request)
     {
         $path = ($request->path() === '/') ? '' : $request->path();
 
@@ -131,7 +131,7 @@ class RecordTransaction
      *
      * @return array
      */
-    protected function formatHeaders(array $headers): array
+    protected function formatHeaders(array $headers)
     {
         return collect($headers)->map(function ($values, $header) {
             return head($values);
