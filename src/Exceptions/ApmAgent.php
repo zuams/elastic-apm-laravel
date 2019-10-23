@@ -1,6 +1,6 @@
 <?php
 
-namespace PhilKra\ElasticApmLaravel\Exceptions;
+namespace Zuams\ElasticApmLaravel\Exceptions;
 
 /**
  *
@@ -13,14 +13,14 @@ namespace PhilKra\ElasticApmLaravel\Exceptions;
 
 use Exception;
 use App\Exceptions\Handler;
-use \PhilKra\Agent;
+use \Zuams\Agent;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class ApmAgent extends Handler
 {
     /**
-     * @var \PhilKra\Agent
+     * @var \Zuams\Agent
      */
     protected $agent;
 

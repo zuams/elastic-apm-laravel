@@ -1,15 +1,15 @@
 <?php
 
-namespace PhilKra\ElasticApmLaravel\Providers;
+namespace Zuams\ElasticApmLaravel\Providers;
 
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
-use PhilKra\Agent;
-use PhilKra\ElasticApmLaravel\Apm\SpanCollection;
-use PhilKra\ElasticApmLaravel\Apm\Transaction;
-use PhilKra\ElasticApmLaravel\Contracts\VersionResolver;
-use PhilKra\Helper\Timer;
+use Zuams\Agent;
+use Zuams\ElasticApmLaravel\Apm\SpanCollection;
+use Zuams\ElasticApmLaravel\Apm\Transaction;
+use Zuams\ElasticApmLaravel\Contracts\VersionResolver;
+use Zuams\Helper\Timer;
 
 class ElasticApmServiceProvider extends ServiceProvider
 {

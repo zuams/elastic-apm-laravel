@@ -1,6 +1,6 @@
 <?php
 
-namespace PhilKra\ElasticApmLaravel\Facades;
+namespace Zuams\ElasticApmLaravel\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

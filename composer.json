@@ -27,10 +27,10 @@
    "extra":{  
       "laravel":{  
          "providers":[  
-            "PhilKra\\ElasticApmLaravel\\Providers\\ElasticApmServiceProvider"
+            "Zuams\\ElasticApmLaravel\\Providers\\ElasticApmServiceProvider"
          ],
          "aliases":{  
-            "ElasticApm":"PhilKra\\ElasticApmLaravel\\Facades\\ElasticApm"
+            "ElasticApm":"Zuams\\ElasticApmLaravel\\Facades\\ElasticApm"
          }
       }
    },
