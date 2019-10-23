@@ -1,6 +1,6 @@
 # PHP Elastic APM for Laravel & Lumen
 
-Forked from [philkra/elastic-apm-laravel](https://github.com/philkra/elastic-apm-laravel) for adding support for PHP >= 5.6
+Forked from [Zuams/elastic-apm-laravel](https://github.com/Zuams/elastic-apm-laravel) for adding support for PHP >= 5.6
 
 ## Install
 ```
@@ -15,15 +15,15 @@ Register the middleware in `app/Http/Kernel.php`
 ```php
 protected $middleware = [
     // ... more middleware
-    \PhilKra\ElasticApmLaravel\Middleware\RecordTransaction::class,
+    \Zuams\ElasticApmLaravel\Middleware\RecordTransaction::class,
 ];
 ```
 
 ### Lumen
-In `bootstrap/app.php` register `PhilKra\ElasticApmLaravel\Middleware\RecordTransaction::class` as middleware:
+In `bootstrap/app.php` register `Zuams\ElasticApmLaravel\Middleware\RecordTransaction::class` as middleware:
 ```php
 $app->middleware([
-    PhilKra\ElasticApmLaravel\Middleware\RecordTransaction::class
+    Zuams\ElasticApmLaravel\Middleware\RecordTransaction::class
 ]);
 ```
 
@@ -31,9 +31,9 @@ $app->middleware([
 ### Laravel
 No need to register service provider manually. It is registered automatically by [package discovery](https://laravel.com/docs/5.6/packages#package-discovery).
 ### Lumen
-In `bootstrap/app.php` register `\PhilKra\ElasticApmLaravel\Providers\ElasticApmServiceProvider::class` as service provider:
+In `bootstrap/app.php` register `\Zuams\ElasticApmLaravel\Providers\ElasticApmServiceProvider::class` as service provider:
 ```php
-$app->register(\PhilKra\ElasticApmLaravel\Providers\ElasticApmServiceProvider::class);
+$app->register(\Zuams\ElasticApmLaravel\Providers\ElasticApmServiceProvider::class);
 ```
 
 ## Spans
@@ -44,7 +44,7 @@ when it is ended.
 
 ```php
 // Use any normal Laravel method of resolving the dependency
-$transaction = app(\PhilKra\ElasticApmLaravel\Apm\Transaction::class);
+$transaction = app(\Zuams\ElasticApmLaravel\Apm\Transaction::class);
 
 $span = $transaction->startNewSpan('My Span', 'app.component_name');
 
